@@ -14,6 +14,8 @@ jobs:
       - image: google/cloud-sdk:debian_component_based #cimg/android:2022.03 #google/cloud-sdk #cimg/base:stable
     resource_class: small
     steps:
+      - setup_remote_docker:
+          version: 20.10.12
       - run:
           name: Build image (with BuildKit)
           command: |

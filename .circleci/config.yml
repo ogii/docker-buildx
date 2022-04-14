@@ -14,25 +14,11 @@ jobs:
       - image: google/cloud-sdk #cimg/android:2022.03 #google/cloud-sdk #cimg/base:stable
     resource_class: small
     steps:
-      - setup_remote_docker:
-          version: << parameters.docker-version >>
-      - checkout
-      - when:
-          condition: << parameters.enable-experimental-feature >>
-          steps:
-            - run:
-                name: Enable Experimental feature on Docker Daemon
-                command: |
-                  ssh remote-docker \<<EOF
-                    sudo bash -c 'echo "{\"features\": {\"experimental\": true } }" > /etc/docker/daemon.json'
-                    sudo systemctl restart docker
-                    sudo docker info
-                  EOF
       - run:
           name: Build image (with BuildKit)
           command: |
             docker -v
-            export DOCKER_CLI_EXPERIMENTAL=enabled
+            #export DOCKER_CLI_EXPERIMENTAL=enabled
             docker buildx version
             docker buildx create --use
       - run:

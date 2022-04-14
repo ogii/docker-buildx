@@ -18,7 +18,8 @@ jobs:
           name: Build image (with BuildKit)
           command: |
             docker -v
-            #export DOCKER_CLI_EXPERIMENTAL=enabled
+            export DOCKER_CLI_EXPERIMENTAL=enabled
+            docker -v
             docker buildx version
             docker buildx create --use
       - run:

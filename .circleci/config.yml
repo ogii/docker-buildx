@@ -11,7 +11,7 @@ jobs:
         type: boolean
         default: false
     docker:
-      - image: google/cloud-sdk:379.0.0-alpine #cimg/android:2022.03 #google/cloud-sdk #cimg/base:stable
+      - image: cimg/base:stable #google/cloud-sdk:379.0.0-alpine #cimg/android:2022.03 #google/cloud-sdk #cimg/base:stable
     resource_class: small
     steps:
       - setup_remote_docker:

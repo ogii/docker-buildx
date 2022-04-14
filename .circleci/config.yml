@@ -11,7 +11,7 @@ jobs:
         type: boolean
         default: false
     docker:
-      - image: google/cloud-sdk #cimg/base:stable
+      - image: google/cloud-sdk:380.0.0-debian_component_based #cimg/base:stable
     resource_class: small
     steps:
       - setup_remote_docker:

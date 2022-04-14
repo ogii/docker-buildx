@@ -33,7 +33,8 @@ jobs:
           command: |
             docker -v
             #export DOCKER_CLI_EXPERIMENTAL=enabled
-            docker buildx build --tag hello .
+            docker buildx version
+            docker buildx create --use
       - run:
           name: Test run image
           command: |

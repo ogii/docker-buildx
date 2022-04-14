@@ -15,7 +15,7 @@ jobs:
     resource_class: small
     steps:
       - setup_remote_docker:
-          version: 20.10.13
+          version: 20.10.12
       - run:
           name: Build image (with BuildKit)
           command: |
@@ -23,7 +23,7 @@ jobs:
             export DOCKER_CLI_EXPERIMENTAL=enabled
             docker -v
             docker buildx version
-            docker buildx create --use
+            docker buildx build . 
       - run:
           name: Test run image
           command: |

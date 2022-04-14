@@ -11,7 +11,7 @@ jobs:
         type: boolean
         default: false
     docker:
-      - image: cimg/android:2022.03 #google/cloud-sdk #cimg/base:stable
+      - image: google/cloud-sdk #cimg/android:2022.03 #google/cloud-sdk #cimg/base:stable
     resource_class: small
     steps:
       - setup_remote_docker:
@@ -31,6 +31,7 @@ jobs:
       - run:
           name: Build image (with BuildKit)
           command: |
+            docker -v
             export DOCKER_CLI_EXPERIMENTAL=enabled
             docker buildx build --tag hello .
       - run:
